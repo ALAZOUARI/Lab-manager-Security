@@ -1,0 +1,11 @@
+package com.example.demo.proxies;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+
+
+@FeignClient(value = "evenementservice")
+@RibbonClient(name = "evenementservice")
+public interface Evenementproxy {
+
+}

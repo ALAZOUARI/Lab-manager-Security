@@ -1,0 +1,18 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.EvenementRepository;
+import com.example.demo.entities.Evenement;
+
+@Service
+public class EvenementService {
+	@Autowired
+	EvenementRepository evenementRepository ; 
+	
+	public Evenement addEvenement(Evenement e) {
+		return evenementRepository.save(e); 
+	}
+
+}

@@ -1,0 +1,90 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.EtudiantRepository;
+import com.example.demo.dao.MembreRepository;
+import com.example.demo.entities.EnseignantChercheur;
+import com.example.demo.entities.Etudiant;
+import com.example.demo.entities.Membre;
+
+@Service
+public class MemberImpl implements IMemberService {
+	@Autowired
+	MembreRepository membreRepository;
+	@Autowired
+	EtudiantRepository etudiantRepository;  
+	@Autowired 
+	EnseignantChercheur enseignantChercheur ;
+
+	@Override
+	public void affecteretudiant(Long idetu, Long idens) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Membre addMember(Membre m) {
+		membreRepository.save(m);
+		return m;
+	}
+
+	@Override
+	public void deleteMember(Long id) {
+		membreRepository.delete(id);
+
+	}
+
+	@Override
+	public Membre updateMember(Membre p) {
+		return membreRepository.saveAndFlush(p);
+	}
+
+	@Override
+	public Membre findMember(Long id) {
+		Membre m= (Membre)membreRepository.findById(id).get();
+
+		return m;
+	}
+
+	@Override
+	public List<Membre> findAll() {
+		return membreRepository.findAll();
+	}
+
+	@Override
+	public Membre findByCin(String cin) {
+		return membreRepository.findByCin(cin);
+	}
+
+	@Override
+	public Membre findByEmail(String email) {
+		return membreRepository.findByEmail(email);
+	}
+
+	@Override
+	public List<Membre> findByNom(String nom) {
+		return membreRepository.findByNom(nom);
+	}
+
+	@Override
+	public List<Etudiant> findByDiplome(String diplome) {
+		return etudiantRepository.findByDiplome(diplome);
+	}
+
+	@Override
+	public List<EnseignantChercheur> findByGrade(String grade) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EnseignantChercheur> findByEtablissement(String etablissement) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

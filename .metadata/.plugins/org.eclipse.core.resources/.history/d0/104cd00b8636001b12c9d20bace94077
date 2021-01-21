@@ -1,0 +1,9 @@
+package com.example.demo.entities;
+
+import java.io.Serializable;
+
+public class Membre_Evt_Ids implements Serializable{
+	private Long publication_id ; 
+	private Long evenement_id ; 
+
+}

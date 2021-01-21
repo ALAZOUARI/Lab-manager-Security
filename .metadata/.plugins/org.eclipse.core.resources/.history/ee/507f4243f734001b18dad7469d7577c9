@@ -1,0 +1,40 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.EvenementRepository;
+import com.example.demo.entities.Evenement;
+import com.example.demo.entities.Outil;
+
+@Service
+public class EvenementService {
+	@Autowired
+	EvenementRepository evenementRepository ; 
+	
+	public Evenement addEvenement(Evenement e) {
+		return evenementRepository.save(e); 
+	}
+	public void deleteEvenement(Evenement e) {
+		evenementRepository.delete(e);
+	}
+
+	public Evenement updateOutil(Evenement e) {
+		return evenementRepository.saveAndFlush(e); 
+	}
+	
+	public void deleteById(Long id) {
+		evenementRepository.deleteById(id);
+	}
+	public List<Evenement> findAll(){
+		return evenementRepository.findAll() ; 
+	}
+	
+	public Evenement findByLieu(String lieu){
+		return evenementRepository.findByLieu(lieu) ; 
+	}
+	
+
+}

@@ -1,0 +1,44 @@
+package com.example.demo;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.entities.EnseignantChercheur;
+import com.example.demo.entities.Etudiant;
+import com.example.demo.entities.Membre;
+import com.example.demo.service.IMemberService;
+
+@SpringBootApplication
+
+public class DemoApplication implements CommandLineRunner {
+	@Autowired
+	IMemberService memberService;
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+
+	public void run(String... args) throws Exception {
+		Date date =new SimpleDateFormat("dd/MM/yyyy").parse("11/05/1997");
+
+		Membre etudiant1 = new Etudiant("11091421", "ALA", "ZOUARI",date , null, "cv.pdf", "ala.zouari@stud.enis.tn", "passwd", null, "IT");
+		memberService.addMember(etudiant1);
+		Membre ens1 = new EnseignantChercheur("02345643", "AMMAR", "AMRI", date, null, "cv1.pdf", "ala.zouariii@gmail.com", "toor", null, "Assistant","ENIS");
+		memberService.addMember(ens1) ; 
+		memberService.affecteretudiant(1L, 2L);
+		Membre ens1 = new EnseignantChercheur("12345668", "XX", "XXX", date, null, "cv11.pdf", "aloulou.zouari@gmail.com", "toor", null, "Assistant","ENIT");
+		memberService.addMember(ens1) ;
+		Membre ens1 = new EnseignantChercheur("14565643", "YY", "YYY", date, null, "cv14.pdf", "ala.zouariii@gmail.com", "toor", null, "Professeur","ENIM");
+		memberService.addMember(ens1) ;
+		Membre etudiant1 = new Etudiant("11563872", "ZZ", "ZZZ",date , null, "cv23.pdf", "ala.zouari@stud.enis.tn", "passwd", null, "GC");
+		memberService.addMember(etudiant1);
+		Membre etudiant1 = new Etudiant("17031421", "MM", "MMM",date , null, "cv43.pdf", "ala.zouari@stud.enis.tn", "passwd", null, "GB");
+		memberService.addMember(etudiant1);
+
+	}
+}

@@ -1,0 +1,10 @@
+package com.example.demo.proxies;
+
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.FeignClient;
+@FeignClient(value = "outilservice")
+@RibbonClient(name = "outilservice")
+public interface OutilProxy {
+	
+	
+}
